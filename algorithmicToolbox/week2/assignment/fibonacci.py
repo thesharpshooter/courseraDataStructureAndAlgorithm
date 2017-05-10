@@ -6,7 +6,7 @@ def calc_fib(n):
     return calc_fib(n - 1) + calc_fib(n - 2)
 
 #Fibonacci using eucledian Algorithm
-def eucledian_fibonacci(n):
+def fibonacci(n):
     fib = [0]*(n+1)
     fib[1] = 1
     for i in range(2,n+1):
@@ -15,4 +15,4 @@ def eucledian_fibonacci(n):
 
 n = int(input())
 print(calc_fib(n))
-print(eucledian_fibonacci(n))
+print(fibonacci(n))
