@@ -10,7 +10,16 @@ def gcd_naive(a, b):
 
     return current_gcd
 
-if __name__ == "__main__":
-    input = sys.stdin.read()
-    a, b = map(int, input.split())
-    print(gcd_naive(a, b))
+def euclidean_gcd(a,b):
+    if a == 0:
+        return b
+    elif b == 0:
+        return a
+    else:
+        return euclidean_gcd(b,a%b)
+
+x = map(int, raw_input().split(" "))
+a = x[0]
+b = x[1]
+print(euclidean_gcd(a,b))
+print(gcd_naive(a,b))
