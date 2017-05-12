@@ -7,6 +7,6 @@ def get_fibonacci_last_digit(n):
     for i in range(2,n+1):
         fib[i] = (fib[i-1] + fib[i-2])%10
     return fib[n]%10
-n = int(raw_input())
+n = int(input())
 print(get_fibonacci_last_digit(n))
 

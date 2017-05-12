@@ -18,8 +18,8 @@ def euclidean_gcd(a,b):
     else:
         return euclidean_gcd(b,a%b)
 
-x = map(int, raw_input().split(" "))
+x = list(map(int, input().split(" ")))
 a = x[0]
 b = x[1]
 print(euclidean_gcd(a,b))
-print(gcd_naive(a,b))
+#print(gcd_naive(a,b))

@@ -8,8 +8,17 @@ def lcm_naive(a, b):
 
     return a*b
 
-if __name__ == '__main__':
-    input = sys.stdin.read()
-    a, b = map(int, input.split())
-    print(lcm_naive(a, b))
+def euclidean_gcd(a,b):
+    if a == 0:
+        return b
+    elif b == 0:
+        return a
+    else:
+        return euclidean_gcd(b,a%b)
 
+x = list(map(int,input().split(" ")))
+a = x[0]
+b = x[1]
+lcm = (a*b)//euclidean_gcd(a,b)
+print(lcm)
+#print(lcm_naive(a,b))
