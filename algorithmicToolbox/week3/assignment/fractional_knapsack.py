@@ -1,4 +1,4 @@
-#pyton2
+#python2
 import operator
 items,weight = map(int,raw_input().split(" "))
 item = []
