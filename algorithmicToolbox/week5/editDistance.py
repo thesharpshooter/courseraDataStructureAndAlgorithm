@@ -21,6 +21,6 @@ def editDistance(x,y):
 
     for i in range(1,m+1):
         for j in range(1,n+1):
-            distance[j][i] = min(1+distance[j-1][i],1+distance[j][i-1],diff(i,j)+distance[j-1][i-1])
+            distance[j][i] = min(1+distance[j-1][i],1+distance[j][i-1])
     return distance[n][m]
 print editDistance(x,y)
