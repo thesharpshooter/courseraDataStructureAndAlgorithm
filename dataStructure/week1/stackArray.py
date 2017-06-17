@@ -32,6 +32,7 @@ class StackArray():
         print self.stack
 
 
+
 s = StackArray(5)
 for i in range(s.size+1):
     s.push(i)
