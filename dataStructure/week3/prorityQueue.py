@@ -46,20 +46,15 @@ class priorityQueue():
         while (max(self.heap[self.leftChild(i)],self.heap[self.rightChild(i)]) > self.heap[i]) and (i>0 and i<=self.size):
             left = self.heap[self.leftChild(i)]
             right = self.heap[self.rightChild(i)]
-            temp_max =max(left,right)
-            index = self.heap.index(temp_max)
-            print "Index of max is : ",index
-            print "left : ",self.leftChild(i)
-            print "right : ",self.rightChild(i)
-            self.heap[i],self.heap[index] = self.heap[index],self.heap[i]
-            i = index
+            if left>0 and right >0:
+                temp_max =max(left,right)
+                index = self.heap.index(temp_max)
+                self.heap[i],self.heap[index] = self.heap[index],self.heap[i]
+                i = index
 
     def extractMax(self):
         self.heap[1],self.heap[self.size] = self.heap[self.size],self.heap[1]
-        print "heap after swap :",self.heap
-        print  "size before : ",self.size
         self.size -= 1
-        print "size after : ",self.size
         self.shiftDown(1)
         return self.heap[self.size+1]
 
@@ -76,26 +71,50 @@ class priorityQueue():
             self.changePriority(i,float("inf"))
             self.extractMax()
 
+    def buildHeap(self,array):
+        n = len(array)
+        self.heap = [0]+array
+        self.size = n
+        for i in reversed(range(1,self.size/2+1)):
+            self.shiftDown(i)
+        return self.heap
+
+    def heapSort(self):
+        while self.size >0:
+            print "Heap before : ",self.heap
+            self.heap[1],self.heap[self.size] = self.heap[self.size],self.heap[1]
+            print "Heap after : ",self.heap
+            self.size -= 1
+            print self.size
+            self.shiftDown(1)
+
+        return self.heap
+
+
+
+
 
 p = priorityQueue(10)
-print p.size
-x = [11,17,19,28,0,5,29,32,48]
-for i in x:
-    p.insert(i)
 
-print p.heap
-p.extractMax()
-print p.heap
-p.extractMax()
-print p.heap
-print p.extractMax()
-print p.heap
-p.changePriority(1,48)
-print p.heap
-p.changePriority(p.size,47)
-print p.heap
-p.extractMax()
-print p.heap[1:p.size]
+x = [1,2,3,4,5]
+print p.buildHeap(x)
+print p.heapSort()
+#for i in x:
+#    p.insert(i)
+
+#print p.heap
+#p.extractMax()
+#print p.heap
+#p.extractMax()
+#print p.heap
+#print p.extractMax()
+#print p.heap
+#p.changePriority(1,48)
+#print p.heap
+#p.changePriority(p.size,47)
+#print p.heap
+#p.extractMax()
+#print p.heap[1:p.size]
 
 
 
