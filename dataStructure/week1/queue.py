@@ -44,12 +44,12 @@ class Queue():
             curr = curr.next
         print "End"
 
-q = Queue()
-print q.isEmpty()
-for i in range(5):
-    q.enqueue(i)
-    q.getQueue()
+#q = Queue()
+#print q.isEmpty()
+#for i in range(5):
+#    q.enqueue(i)
+#    q.getQueue()
 
-while not q.isEmpty():
-    q.dequeue()
-    q.getQueue()
+#while not q.isEmpty():
+#    q.dequeue()
+#    q.getQueue()
