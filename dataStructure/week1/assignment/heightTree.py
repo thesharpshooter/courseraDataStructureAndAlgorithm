@@ -1,26 +1,26 @@
 #Uses python2
+
 n = int(raw_input())
-x = map(int,raw_input().split(" "))
-parent = {}
-nodes = {}
-root = {}
+parent = map(int,raw_input().split(" "))
+nodes = []
+root = parent.index(-1)
+
+child = {}
+child[-1] = []
 for i in range(n):
-    parent[i] = x[i]
-    nodes["node"+str(i)] = {"key":i,"child":[]}
-    if x[i] == -1:
-        root = nodes["node"+str(i)]
-for x in parent:
-    if parent[x]!= -1:
-        nodes["node"+str(parent[x])]["child"].append(int(x))
-    
+    child[i] = []
 
-for x in nodes:
-    print nodes[x]
+for i in range(n):
+    child[parent[i]].append(i)
 
-print root
 
-def getHeight(root):
-    if len(root['child'] == 0 ):
+def getHeight(i):
+    childs = child[i]
+    if len(childs) == 0:
         return 1
-    else :
-        return 1 + max([getHeight(nodes['node'+str(x)]['child']) for x in ])
+    elif len(childs) == 1:
+        return 1+getHeight(childs[0])
+    else:
+        return 1+max([getHeight(c) for c in childs])
+
+print getHeight(root)
