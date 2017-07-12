@@ -1,3 +1,4 @@
+#Uses python2
 from Queue import PriorityQueue
 v,e = map(int,raw_input().split(" "))
 graph = [[] for i in range(v)]
@@ -18,5 +19,7 @@ def dijkstra(graph,u,v):
 				distance[x[0]] = distance[curr] + x[1]
 				prev[x[0]] = curr
 				pq.put((distance[x[0]],x[0]))
+	if distance[v-1] == float('inf'):
+		distance[v-1] = -1
 	return distance[v-1]
 print dijkstra(graph,u,v)
